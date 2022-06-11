@@ -75,11 +75,14 @@ export default function Pages({
 }: {page: Page}) {
   const router = useRouter()
 
+  console.log("test", page);
+
   return router.isFallback ? (
     <h1>Loading...</h1> // TODO (BC) Add Skeleton Views
   ) : (
     <div className="max-w-2xl mx-8 sm:mx-auto py-20">
-      <h1 className="text-4xl mb-10">Automatic template for shopify content pages</h1>
+      <p>Automatic template for shopify content pages</p>
+      <h1 className="text-4xl mb-10">{page.name}</h1>
       <p className="font-bold">Ce template est utilisé pour rendre les pages de contenu normales de shopify. Pour l'instant, il ne rend que page.body <br /><br /></p>
       {page?.body && <Text html={page.body} />}
     </div>
